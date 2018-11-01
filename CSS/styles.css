@@ -45,8 +45,6 @@ body {
     margin-right:auto;
 }
 
-.pglst{
-}
 
 a {
     color:#3f2a14;
@@ -117,8 +115,6 @@ a:visited {
 .side2e a{text-decoration: underline;}
 
 .menu{
-    width:600px;
-    position:absolute;
     top:5px;
     padding-left: 40px;
     font-family: DecovarAlpha, Roboto, sans-serif;
@@ -126,12 +122,19 @@ a:visited {
 }
 
 
-.xmenu a{    font-family: DecovarAlpha, Roboto, sans-serif;
-            font-size: 1.5em;
-            display: inline-block;}
-
 audio{
-    background-color:#683600;
+    background-color:#35210d;
+    border-style: ridge;
+    border-color: #443321;
+    border-radius: 5px;
+    border-width: 5px;
+    box-shadow: 5px 5px 5px #35210d;
+    margin: 5px;
+    margin-top:0px;
+    z-index: 1;
+}
+@supports (-moz-appearance:none) {
+    audio{border-color: #bb5d00;}
 }
 
 iframe{
@@ -144,12 +147,17 @@ iframe{
     text-align: center;
 }
 
- /* Dropdown Button */
+ /* Menu */
  .droptrigger {
+     display: block;
     background-color: rgba(175, 157, 76, 0);
     padding: 20px;
     border: none;
+    min-width: 150px;
+    box-shadow:3px 3px 6px #35210d;
+    text-align: center;
 }
+
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -165,7 +173,6 @@ iframe{
 
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    margin-top:16px;
 }
 
 .flip-content {
@@ -214,4 +221,9 @@ a.dwnld:hover{
 
 a.dwnld:active{
     box-shadow: 2px 2px 5px #745b41;
+}
+
+#cat3{
+display: inline-block;
+ width: 40px;
 }
