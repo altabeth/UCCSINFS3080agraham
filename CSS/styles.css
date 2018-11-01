@@ -153,7 +153,7 @@ iframe{
     background-color: rgba(175, 157, 76, 0);
     padding: 20px;
     border: none;
-    min-width: 150px;
+    min-width: 145px;
     box-shadow:3px 3px 6px #35210d;
     text-align: center;
 }
@@ -163,25 +163,22 @@ iframe{
 .dropdown {
     position: relative;
     display: inline-block;
+    margin:auto;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
+    margin: auto;
     display: none;
     position: absolute;
-    background-color:#d3b89f65;
-
+    /*background-color:#d3b89f65;*/
+    background-color:#d3b89f00;
+    text-align: center;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-
-.flip-content {
-    display: none;
-    position: absolute;
-    background-color:#d3b89f65;
-
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+.about .dropdown-content{
+    background-color:#e5b98fd7;
 }
 
 /* Links inside the dropdown */
@@ -189,13 +186,13 @@ iframe{
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    margin:auto;
 }
 
 .dropdown-content form{
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    float: right;
 }
 
 
@@ -205,8 +202,8 @@ iframe{
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .droptrigger {background-color:#d3b89fc2;} 
+/* Change the background color of the dropdown button when the dropdown content is shown
+.dropdown:hover .droptrigger {background-color:#d3b89fc2;} */
 
 a.dwnld{
     text-decoration: none;
