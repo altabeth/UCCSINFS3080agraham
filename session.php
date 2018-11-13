@@ -1,4 +1,6 @@
 <?php
+session_save_path('/home/users/web/b2717/ipg.practicalcatwebcom/cgi-bin/tmp');
+
    include('config.php');
    session_start();
    

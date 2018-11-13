@@ -1,5 +1,6 @@
 <?php
 // Initialize the session
+session_save_path('/home/users/web/b2717/ipg.practicalcatwebcom/cgi-bin/tmp');
 session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
@@ -26,7 +27,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
+        <a href="logout.php" class="btn btn-default">Sign Out of Your Account</a>
     </p>
 </body>
 </html>

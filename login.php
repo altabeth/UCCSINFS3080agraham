@@ -1,10 +1,11 @@
 <?php
+session_save_path('/home/users/web/b2717/ipg.practicalcatwebcom/cgi-bin/tmp');
 // Initialize the session
 session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+    header("location: index.php");
     exit;
 }
  
@@ -19,14 +20,16 @@ $username_err = $password_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
-    if(empty(trim($_POST["username"]))){
+    $chnm=(trim($_POST["username"]));
+    if(empty($chnm)){
         $username_err = "Please enter username.";
     } else{
         $username = trim($_POST["username"]);
     }
     
     // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    $chps=(trim($_POST["password"]));
+    if(empty($chps)){
         $password_err = "Please enter your password.";
     } else{
         $password = trim($_POST["password"]);
@@ -64,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: index.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";

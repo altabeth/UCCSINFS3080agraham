@@ -1,5 +1,6 @@
 <?php
 // Initialize the session
+session_save_path('/home/users/web/b2717/ipg.practicalcatwebcom/cgi-bin/tmp');
 session_start();
  
 // Check if the user is logged in, if not then redirect to login page

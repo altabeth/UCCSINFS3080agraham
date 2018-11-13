@@ -1,5 +1,7 @@
 <?php
+session_save_path('/home/users/web/b2717/ipg.practicalcatwebcom/cgi-bin/tmp');
 // Include config file
+
 require_once "config.php";
  
 // Define variables and initialize with empty values
@@ -10,7 +12,8 @@ $username_err = $password_err = $confirm_password_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
-    if(empty(trim($_POST["username"]))){
+    $chnm=(trim($_POST["username"]));
+    if(empty($chnm)){
         $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement
@@ -43,16 +46,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate password
-    if(empty(trim($_POST["password"]))){
+    $chps=(trim($_POST["password"]));
+    if(empty($chps)){
         $password_err = "Please enter a password.";     
     } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
+        $password_err = "Password must have at least 6 characters.";
     } else{
         $password = trim($_POST["password"]);
     }
     
     // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
+    $chcp=(trim($_POST["confirm_password"]));
+    if(empty($chcp)){
         $confirm_password_err = "Please confirm password.";     
     } else{
         $confirm_password = trim($_POST["confirm_password"]);

@@ -16,7 +16,7 @@ h1, h2, h3{
 
 body {
     background-color: #FFEBD2;
-    background-image: url("../images/musicback.jpg");
+    background-image: url("../Images/musicback.jpg");
     background-position: top-center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -26,9 +26,9 @@ body {
 
     }
 
-.home{background-image: url("../images/musicback.jpg");}
-.music{background-image: url("../images/musicback.jpg");}
-.tools{background-image: url("../images/musicback.jpg");}
+.home{background-image: url("../Images/musicback.jpg");}
+.music{background-image: url("../Images/musicback.jpg");}
+.tools{background-image: url("../Images/musicback.jpg");}
 
 .big{
     font-size: 300%;
@@ -161,7 +161,9 @@ iframe{
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-    position: relative;
+    position: absolute;
+    top:10px;
+    left:0px;
     display: inline-block;
     margin:auto;
 }
@@ -229,7 +231,11 @@ display: inline-block;
 div.wrapper{
     margin:auto;
 }
-
+input#submit{
+    font-size: 2em;
+    font-family: DecovarAlpha, Roboto, sans-serif;
+    padding: 5px;
+}
 input.btn.btn-primary{
     background-color: transparent;
     color: #46301c;
@@ -268,4 +274,18 @@ input.btn.btn-default:active{
     background-color: #ffb66744;
     border:none;
     color: #46301c;
+}
+
+#menu2{
+    position:absolute;
+    display:inline-block;
+    top:10px;
+    right:15px;
+    box-shadow: 0px, 0px, 5px, #bb5d00;
+}
+
+#scorebuttons a{
+    font-family: DecovarAlpha, Roboto, sans-serif;
+    padding: 5px;
+    font-size: .8em;
 }
