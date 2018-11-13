@@ -218,9 +218,54 @@ a.dwnld:hover{
 
 a.dwnld:active{
     box-shadow: 2px 2px 5px #745b41;
+    background-color: #ffb66744;
 }
 
 #cat3{
 display: inline-block;
  width: 40px;
+}
+
+div.wrapper{
+    margin:auto;
+}
+
+input.btn.btn-primary{
+    background-color: transparent;
+    color: #46301c;
+    box-shadow: 5px 5px 5px #745b41;
+    border:none;
+    
+}
+input.btn.btn-primary:hover{
+    background-color: #ffb66744;
+    color: #46301c;
+    box-shadow: 5px 5px 5px #745b41;
+    border:none;
+}
+input.btn.btn-primary:active{
+    box-shadow: 2px 2px 5px #745b41;
+    background-color: #ffb66744;
+    border:none;
+    color: #46301c;
+}
+
+input.btn.btn-default{
+    background-color: transparent;
+    color: #46301c;
+    box-shadow: 5px 5px 5px #745b41;
+    border:none;
+    
+}
+input.btn.btn-default:hover{
+    background-color: #ffb66744;
+    color: #46301c;
+    box-shadow: 5px 5px 5px #745b41;
+    border:none;
+}
+input.btn.btn-default:active{
+    box-shadow: 2px 2px 5px #745b41;
+    background-color: #ffb66744;
+    border:none;
+    color: #46301c;
 }
