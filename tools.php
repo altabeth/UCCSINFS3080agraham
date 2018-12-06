@@ -17,9 +17,9 @@ session_start();
         <div id="menu2">
             <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                 echo "Welcome, ".htmlspecialchars($_SESSION["username"]).":  ";
-                ?><a class="dwnld" href="logout.php">Logout</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld" href="reset-password.php">Change Password</a><?php
+                ?><a class="dwnld top" href="logout.php">Logout</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld top" href="reset-password.php">Change Password</a><?php
                 }
-                else{ ?><a class="dwnld" href="login.php">Login</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld" href="register.php">Sign Up</a><?php }; ?>
+                else{ ?><a class="dwnld top" href="login.php">Login</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld top" href="register.php">Sign Up</a><?php }; ?>
             </div>
                 <div class="dropdown menu">
                         <a href=# class="droptrigger">MENU<br></a>
@@ -51,8 +51,8 @@ session_start();
                     </div>
             <div class="side2e">
                 <h2>TOOLS</h2>
-                <br><a href="">MIDI Mode Change</a><br><br>
-                <a href="">MIDI Key Change/Transposition</a><br><br>
+                <br><a href="https://www.midi.org">MIDI Mode Change - coming soon!</a><br><br>
+                <a href="https://www.midi.org">MIDI Key Change/Transposition - coming soon!</a><br><br>
             </div>
             <br><br><br><br><br>
             <div>

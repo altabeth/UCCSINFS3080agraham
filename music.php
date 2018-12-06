@@ -3,6 +3,8 @@
 session_save_path('/home/users/web/b2717/ipg.practicalcatwebcom/cgi-bin/tmp');
 session_start();
 
+require "config.php";
+
 ?>
 
 
@@ -18,9 +20,9 @@ session_start();
 <div id="menu2">
             <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                 echo "Welcome, ".htmlspecialchars($_SESSION["username"]).":  ";
-                ?><a class="dwnld" href="logout.php">Logout</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld" href="reset-password.php">Change Password</a><?php
+                ?><a class="dwnld top" href="logout.php">Logout</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld top" href="reset-password.php">Change Password</a><?php
                 }
-                else{ ?><a class="dwnld" href="login.php">Login</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld" href="register.php">Sign Up</a><?php }; ?>
+                else{ ?><a class="dwnld top" href="login.php">Login</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld top" href="register.php">Sign Up</a><?php }; ?>
             </div>
                 <div class="dropdown menu">
                         <a href=# class="droptrigger">MENU<br></a>
@@ -38,7 +40,7 @@ session_start();
                         </div>
                       </div> 
     <div class="mid">
-        <h1 class="biggish center" id="scorebuttons"><a class="dwnld" href="upload.php">Upload a Score</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld" href="#Scores">See Uploaded Scores</a></h1><br><br>
+        <div class="scoretop"><h1 class="biggish center" id="scorebuttons"><a class="dwnld" href="upload.php">&nbspUpload Score&nbsp</a>&nbsp&nbsp&nbsp&nbsp<a class="dwnld" href="#Scores">&nbspSee Uploaded Scores&nbsp</a></h1></div><br><br>
         <h1 class="biggish center">Music</h1>
     </div>
     <br>
@@ -78,24 +80,60 @@ session_start();
             Your browser does not support the audio element.
         </audio> <br><a class="dwnld" href="Images/Modal-Suite-IV-score-and-parts(2).pdf" download>Download Score</a>
     <a class="dwnld" href="Images/Modal-Suite-for-Baritone-Saxophone-and-Piano.mp3" download>Download .mp3</a>
-    <h1><br><a name="Scores"></a>Uploaded Scores</h1>
-    <?php
-        $path = "./uploads";
-        $dh = opendir($path);
-        $i=1;
-        while (($file = readdir($dh)) !== false) {
-            if($file != "." && $file != ".." && $file != "index.php" && $file != ".htaccess" && $file != "error_log" && $file != "cgi-bin") {
-                echo "<a href='$path/$file'>$file</a><br /><br />";
-                $i++;
-    }
-}
-closedir($dh);
-?> 
+
     </div>
     <div class="side2b score">
         <h2 class="score">SCORE OF THE WEEK:</h2><iframe id="musicframe2" style="width:80%;height:800px" src="ajay/index.html"  seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe>
     </div>
 </div>
+<h1>&nbsp&nbsp&nbsp&nbsp____________________________<br><a name="Scores"></a>&nbsp&nbsp&nbsp&nbspUploaded Scores<h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspScores and audio shared by users</h5></h1>
+<?php
+
+$sql = "SELECT id, user_id, title, inst, score, audio FROM uploads ORDER BY title";   
+
+
+if ($result=mysqli_query($link, $sql))
+  {
+  // Fetch one and one row
+  echo("<div class='ups'>");
+  while ($row=mysqli_fetch_row($result))
+    {
+    $tempid = $row[1];
+    $sql2 = "SELECT id, username FROM users WHERE id = $tempid"; 
+    $result2=mysqli_query($link, $sql2);
+    $row2=mysqli_fetch_row($result2);
+    $name = $row2[1];
+    $aud = $row[5];
+    $score = $row[4];
+    if($score || $aud){
+        echo "<div class='uploads'>";
+        echo("<b>$row[2]</b>");
+        if ($name){
+            echo(" - contributed by $name\n");
+            }
+        if ($row[3]){
+            echo("<br>Instrumentation: $row[3]\n<br>");
+            }
+        if($aud){
+            echo("<audio controls>
+            <source src='uploads/$aud' type='audio/mpeg'>
+            Your browser does not support the audio element.
+            </audio>");
+            }
+        if($score){
+            echo("<br><a class='dwnld' href='uploads/$score' download>Download Score</a>&nbsp&nbsp");
+            }
+        if($aud){
+            echo("<a class='dwnld' href='uploads/$aud' download>Download .mp3</a>");
+            }
+        echo("</div>");
+
+        }
+    }
+    echo("</div>");
+}
+
+?> 
 </body>
 
 </html>
